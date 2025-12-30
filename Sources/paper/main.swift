@@ -18,6 +18,13 @@ final class EditorViewController: NSViewController {
         textView.isAutomaticQuoteSubstitutionEnabled = false
         textView.isAutomaticDashSubstitutionEnabled = false
         textView.isAutomaticTextReplacementEnabled = false
+        textView.textColor = .labelColor
+        textView.insertionPointColor = .labelColor
+        textView.backgroundColor = .textBackgroundColor
+        textView.isHorizontallyResizable = false
+        textView.isVerticallyResizable = true
+        textView.autoresizingMask = [.width]
+        textView.textContainer?.widthTracksTextView = true
         textView.textContainerInset = NSSize(width: 14, height: 12)
 
         let scrollView = NSScrollView(frame: .zero)
