@@ -4,6 +4,7 @@ set -eu
 ROOT_DIR=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
 BUILD_DIR="$ROOT_DIR/build"
 ICON_PNG="$ROOT_DIR/icons/app.png"
+MENU_PDF="$ROOT_DIR/icons/menu.pdf"
 MENU_PNG="$ROOT_DIR/icons/menu.png"
 ICONSET_DIR="$BUILD_DIR/AppIcon.iconset"
 
@@ -27,6 +28,8 @@ if [ -f "$ICON_PNG" ]; then
   iconutil -c icns "$ICONSET_DIR" -o "$BUILD_DIR/Icon.icns"
 fi
 
-if [ -f "$MENU_PNG" ]; then
+if [ -f "$MENU_PDF" ]; then
+  cp "$MENU_PDF" "$BUILD_DIR/MenuBarTemplate.pdf"
+elif [ -f "$MENU_PNG" ]; then
   cp "$MENU_PNG" "$BUILD_DIR/MenuBarTemplate.png"
 fi
